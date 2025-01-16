@@ -1,0 +1,375 @@
+/* ------------------------------- */
+/* Fuente, Reset y Estilos globales*/
+/* ------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #edf2f8; /* Fondo global */
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* Paleta de colores */
+:root {
+  --primary-color: #f76c6c;   /* Rojo/rosado vibrante */
+  --secondary-color: #ffd93d; /* Amarillo/mostaza */
+  --dark-color: #222;
+  --light-color: #fff;
+  --section-bg: #fdfdfd;      /* Fondo de cada sección */
+}
+
+/* Animaciones definidas (usadas en secciones, no en el hero) */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* --------------------------- */
+/* Encabezado y barra de menu  */
+/* --------------------------- */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-color);
+  padding: 1rem 2rem;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.logo h2 {
+  color: var(--light-color);
+  margin: 0;
+  cursor: default;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.main-nav a {
+  color: var(--light-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: var(--primary-color);
+}
+
+/* --------- */
+/* Sección Hero */
+/* --------- */
+.hero {
+  /* Imagen de fondo con tema datos/informática */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('https://images.unsplash.com/photo-1604328698691-0c5422f1df91?auto=format&fit=crop&w=2000') 
+    center/cover no-repeat;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--light-color);
+  /* Sin animación para que no desaparezca tu nombre */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content h1 span {
+  color: var(--secondary-color);
+}
+
+.experience-section {
+    text-align: left; /* Alinea todo el contenido a la izquierda */
+  }
+  
+  .experience-item {
+    margin-bottom: 2rem; /* Separación entre experiencias */
+  }
+  
+  .experience-item h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Si deseas que las listas también estén alineadas a la izquierda (por defecto suelen estarlo) */
+  .experience-item ul {
+    margin-left: 1.5rem; /* Indentado para las viñetas */
+    list-style-type: disc; /* Tipo de viñeta */
+  }
+  
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Resaltamos el texto que habla de Power BI */
+.hero-content p.hero-highlight {
+  background-color: rgba(255, 217, 61, 0.2);
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin: 1rem auto;
+  max-width: 600px;
+}
+
+.btn-hero {
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn-hero:hover {
+  background-color: #ffeb85;
+}
+
+/* ------------------- */
+/* Secciones Generales */
+/* ------------------- */
+section {
+  padding: 3rem 2rem;
+  background-color: var(--section-bg);
+  margin: 1rem auto;
+  max-width: 1200px;
+  border: 2px dashed var(--primary-color);
+  border-radius: 15px;
+  /* Animación fadeInUp en las secciones (menos el hero) */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--dark-color);
+  position: relative;
+}
+
+/* Subrayado decorativo para los títulos */
+section h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 0.5rem auto;
+}
+
+/* ---- Sección Sobre mí ---- */
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ---- Sección Experiencia ---- */
+/* Quitamos las estrellas en la experiencia */
+.experience-item h3 {
+  margin-bottom: 0.3rem;
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  position: relative;
+}
+/* Eliminamos o dejamos vacío el pseudo-elemento */
+.experience-item h3::before {
+  content: "";
+}
+
+.experience-item p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* ---- Sección Educación ---- */
+.education-item {
+  margin-bottom: 1.5rem;
+}
+
+.education-item h3 {
+  margin-bottom: 0.2rem;
+  color: var(--dark-color);
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.education-item h3::before {
+  content: "🎓 ";
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+/* ---- Sección Habilidades ---- */
+.skills-grid {
+  /* Ajustamos para que las tarjetas sean más grandes */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 2rem; /* mayor separación */
+}
+
+.skill-item {
+  background-color: var(--light-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+  position: relative;
+  text-align: left; /* para que se vean mejor los sub-items */
+  transition: transform 0.3s;
+  min-height: 220px; /* altura mínima mayor */
+}
+
+/* Hover */
+.skill-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Subapartado dentro de cada tarjeta (habilidad + estrellas) */
+.skill-subitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.skill-subitem p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Estrellas de 1 a 5 (texto literal) */
+.stars {
+  font-size: 1.2rem;
+}
+
+/* Quitamos la estrella por defecto en el h4 de cada skill */
+.skill-item h4 {
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.skill-item h4::before {
+  content: "";
+}
+
+/* ---- Sección Contacto ---- */
+.contact-section p {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input, textarea {
+  padding: 0.8rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  outline: none;
+  font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--secondary-color);
+  transition: border-color 0.3s;
+}
+
+button[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #ff9d9d;
+}
+
+/* --------- */
+/* Pie de página */
+/* --------- */
+.main-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  border-top: 3px solid var(--primary-color);
+  margin-top: 2rem;
+}
